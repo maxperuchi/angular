@@ -1,0 +1,23 @@
+<form class="row m-1 border border-1 rounded" [formGroup]="bombaItemForm">
+  <p class="text-start fs-6 pt-1" *ngIf="leitura">B{{leitura.bomba.numero}} - {{leitura.bomba.combustivel.nome}}</p>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Term.</mat-label>
+    <input matInput type="number" formControlName="term" (click)="$event.target.select()" autocomplete="off" [readonly]="somenteLeitura"/>
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Inic.</mat-label>
+    <input matInput type="number" formControlName="inic" readonly />
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Aferição</mat-label>
+    <input matInput type="number" formControlName="afericao" (click)="$event.target.select()" autocomplete="off" [readonly]="somenteLeitura"/>
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Litros</mat-label>
+    <input matInput type="number" formControlName="litros" readonly />
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input matInput type="text" formControlName="valor" readonly currencyMask [options]="currencyOptions$" />
+  </mat-form-field>
+</form>

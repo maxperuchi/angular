@@ -1,0 +1,9 @@
+<div class="bombas-app border rounded">
+  <div class="container">
+    <div class="row" *ngIf="caixa$">
+      <div class="col-sm-2" *ngFor="let leitura of caixa$.leituras">
+        <app-bomba-item [leitura]="leitura" (bombaChanged)="bombaChanged(event$)"></app-bomba-item>
+      </div>
+    </div>
+  </div>
+</div>

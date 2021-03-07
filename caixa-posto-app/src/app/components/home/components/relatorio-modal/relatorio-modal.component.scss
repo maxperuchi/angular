@@ -1,0 +1,9 @@
+@import "../../../../../../node_modules/rfs/scss";
+
+.table {
+    @include rfs(0.8rem, font-size);
+}
+
+.mat-dialog-content {
+    max-height: 40vw;
+}

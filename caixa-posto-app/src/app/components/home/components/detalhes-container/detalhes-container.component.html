@@ -1,0 +1,118 @@
+<div class="detalhes-app border rounded" *ngIf="caixa$">
+  <div class="container d-flex m-2">
+    <mat-form-field class="form-field m-1" appearance="outline">
+      <label>Turno / Frentista</label>
+      <input matInput class="frentista" type="text" [(ngModel)]="caixa$.turno" autocomplete="off"
+        [readonly]="somenteLeitura">
+    </mat-form-field>
+    <mat-form-field class="form-field m-1 datefield" appearance="outline">
+      <label>Data</label>
+      <input matInput readonly class="datefield-input" [matDatepicker]="picker" [(ngModel)]="caixa$.dia"
+        (click)="openCalendar()">
+      <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="somenteLeitura"></mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]="somenteLeitura"></mat-datepicker>
+    </mat-form-field>
+
+  </div>
+  <div class="container m-2 d-flex">
+    <div class="detalhes-container">
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Troco Inicial</label>
+        <input matInput type="text" [(ngModel)]="caixa$.trocoInicial" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Moedas Inicial</label>
+        <input matInput type="text" [(ngModel)]="caixa$.moedasInicial" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Venda de Produtos</label>
+        <input matInput type="text" [(ngModel)]="caixa$.vendaProdutos" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Recebimentos</label>
+        <input matInput type="text" [(ngModel)]="caixa$.recebimentos" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Venda de Combustíveis</label>
+        <input matInput type="text" [(ngModel)]="caixa$.somaLeituras" readonly currencyMask
+          [options]="currencyOptions$">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Arla</label>
+        <input matInput type="text" [(ngModel)]="caixa$.arla" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Vales</label>
+        <input matInput type="text" [(ngModel)]="caixa$.vales" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Total</label>
+        <input matInput type="text" [(ngModel)]="caixa$.somaTotalA" readonly currencyMask [options]="currencyOptions$"
+          (click)="$event.target.select()">
+      </mat-form-field>
+    </div>
+
+    <div class="detalhes-container mt-5">
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Troco Final</label>
+        <input matInput type="text" [(ngModel)]="caixa$.trocoFinal" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Moedas Final</label>
+        <input matInput type="text" [(ngModel)]="caixa$.moedasFinal" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Total Fiado</label>
+        <input matInput type="text" [(ngModel)]="caixa$.totalFiado" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Cartões / Pix</label>
+        <input matInput type="text" [(ngModel)]="caixa$.cartoesPix" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Dinheiro</label>
+        <input matInput type="text" [(ngModel)]="caixa$.dinheiro" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Retirada Caixa</label>
+        <input matInput type="text" [(ngModel)]="caixa$.retiradaCaixa" currencyMask [options]="currencyOptions$"
+          (ngModelChange)="calcularDetalhes()" (click)="$event.target.select()" autocomplete="off"
+          [readonly]="somenteLeitura">
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <label>Total</label>
+        <input matInput type="text" [(ngModel)]="caixa$.somaTotalB" readonly currencyMask [options]="currencyOptions$">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="container detalhes-container m-2">
+    <mat-form-field class="form-field" appearance="outline">
+      <label>Diferença</label>
+      <input matInput type="text" [(ngModel)]="caixa$.diferenca" readonly currencyMask [options]="currencyOptions$">
+    </mat-form-field>
+  </div>
+
+</div>

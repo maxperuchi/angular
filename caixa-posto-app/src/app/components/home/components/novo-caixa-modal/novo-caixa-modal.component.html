@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Novo Caixa</h1>
+<div mat-dialog-content>
+  <div class="container p-2">
+    <p>Turno / Frentista</p>
+    <input matInput type="text" [(ngModel)]="turnoCaixaNovo" (keydown.enter)="novo()" autocomplete="off">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="novo()" [disabled]="!isValid()">Novo</button>
+</div>

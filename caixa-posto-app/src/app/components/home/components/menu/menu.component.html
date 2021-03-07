@@ -1,0 +1,19 @@
+<div class="container p-2">
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button color="primary" (click)="precosCombustiveis()">Preços Combustíveis</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="primary" (click)="novoCaixa()">Novo</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="primary" (click)="abrirCaixa()">Abrir</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="warn" (click)="salvarCaixa()" *ngIf="caixa$">Salvar</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="warn" (click)="relatorioCaixa()" *ngIf="caixa$">Imprimir Relatório</button>
+        </div>
+    </div>
+</div>

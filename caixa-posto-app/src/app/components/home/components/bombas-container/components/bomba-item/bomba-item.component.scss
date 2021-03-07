@@ -1,0 +1,19 @@
+form {
+    width: 140px;
+    font-size: 9pt;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 3px 0 3px 0;
+    line-height: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}

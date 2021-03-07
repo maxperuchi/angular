@@ -1,0 +1,115 @@
+<div mat-dialog-content>
+  <div id="htmlData">
+    <h1 mat-dialog-title>Relatório Caixa</h1>
+    <h2>Data: {{caixa$.dia | date:'dd/MM/yyyy HH:mm':'+0000'}} - Turno  / Funcionário: {{caixa$.turno}}</h2>
+    <table class="table table-sm table-bordered">
+      <thead>
+        <tr>
+          <th>BOMBA</th>
+          <th *ngFor="let leitura of caixa$.leituras">B{{leitura.bomba.numero}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TERM.</td>
+          <td *ngFor="let leitura of caixa$.leituras">{{leitura.term}}</td>
+        </tr>
+        <tr>
+          <td>INICIAL</td>
+          <td *ngFor="let leitura of caixa$.leituras">{{leitura.inic}}</td>
+        </tr>
+        <tr>
+          <td>AFER.</td>
+          <td *ngFor="let leitura of caixa$.leituras">{{leitura.afericao}}</td>
+        </tr>
+        <tr>
+          <td>LITROS</td>
+          <td *ngFor="let leitura of caixa$.leituras">{{leitura.litros}}</td>
+        </tr>
+        <tr>
+          <td>R$</td>
+          <td *ngFor="let leitura of caixa$.leituras">{{leitura.valor | currency: 'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex">
+      <table class="table table-sm table-bordered">
+        <tbody>
+          <tr>
+            <td class="fw-bold">Troco Inicial</td>
+            <td>{{caixa$.trocoInicial | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Moedas Inicial</td>
+            <td>{{caixa$.moedasInicial | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Venda de Produtos</td>
+            <td>{{caixa$.vendaProdutos | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Recebimentos</td>
+            <td>{{caixa$.recebimentos | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Venda de Combustível</td>
+            <td>{{caixa$.somaLeituras | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Arla</td>
+            <td>{{caixa$.arla | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Vales</td>
+            <td>{{caixa$.vales | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Total</td>
+            <td>{{caixa$.somaTotalA | currency: 'BRL' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-sm table-bordered">
+        <tbody>
+          <tr>
+            <td class="fw-bold">Troco Final</td>
+            <td>{{caixa$.trocoFinal | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Moedas Final</td>
+            <td>{{caixa$.moedasFinal | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Total Fiado</td>
+            <td>{{caixa$.totalFiado | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Cartões / Pix</td>
+            <td>{{caixa$.cartoesPix | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Dinheiro</td>
+            <td>{{caixa$.dinheiro | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Retirada Caixa</td>
+            <td>{{caixa$.retiradaCaixa | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Total</td>
+            <td>{{caixa$.somaTotalB | currency: 'BRL' }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Diferença</td>
+            <td>{{caixa$.diferenca | currency: 'BRL' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Fechar</button>
+  <button mat-raised-button color="primary" (click)="openPDF()">Imprimir</button>
+</div>
