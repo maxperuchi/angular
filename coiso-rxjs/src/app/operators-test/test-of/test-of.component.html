@@ -1,0 +1,13 @@
+<section>
+    <h1>of</h1>
+
+    <p>Value of 'testArray':</p>
+    <pre>{{testArray|json}}</pre>
+
+    <input type="text" [(ngModel)]="inputArray">
+    <button (click)="setArray();">Set 'testArray'</button>
+    <button (click)="executeTest();">Test operator</button>
+    
+    <p>Result:</p>
+    <pre>{{result|json}}</pre>
+</section>

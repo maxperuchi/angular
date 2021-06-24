@@ -1,0 +1,24 @@
+<section>
+    <h1>forkJoin</h1>
+
+    <p>Value of 'testArray1':</p>
+    <pre>{{testArray1|json}}</pre>
+    <input type="text" [(ngModel)]="inputArray1">
+    <button (click)="setArray1();">Set 'testArray1'</button>   
+
+    <p>Value of 'testArray2':</p>
+    <pre>{{testArray2|json}}</pre>
+    <input type="text" [(ngModel)]="inputArray2">
+    <button (click)="setArray2();">Set 'testArray2'</button>   
+
+    <p>Value of 'testArray3':</p>
+    <pre>{{testArray3|json}}</pre>
+    <input type="text" [(ngModel)]="inputArray3">
+    <button (click)="setArray3();">Set 'testArray3'</button>
+
+    <button (click)="executeTest();">Test operator</button>
+    <p>Result:</p>
+    <pre>{{result|json}}</pre>
+    <p>Result 2:</p>
+    <pre>{{result2|json}}</pre>
+</section>
